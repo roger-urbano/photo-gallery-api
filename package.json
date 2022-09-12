@@ -13,6 +13,8 @@
   "author": "fazt",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.0",
+    "connect-timeout": "^1.9.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "fs-extra": "^8.1.0",

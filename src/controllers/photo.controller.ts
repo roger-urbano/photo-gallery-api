@@ -33,7 +33,10 @@ export async function deletePhoto(req: Request, res: Response): Promise<Response
     if (photo) {
         await fs.unlink(path.resolve(photo.imagePath));
     }
-    return res.json({ message: 'Photo Deleted' });
+    return res.json({ message: 'Photo Deleted'})
+
+    // return res.setTimeout(3000).json({ message: 'Photo Deleted'});
+
 };
 
 export async function updatePhoto(req: Request, res: Response): Promise<Response> {
@@ -41,7 +44,8 @@ export async function updatePhoto(req: Request, res: Response): Promise<Response
     const { title, description } = req.body;
     const updatedPhoto = await Photo.findByIdAndUpdate(id, {
         title,
-        description
+        description,
+        imagePath: req.file.path
     });
     return res.json({
         message: 'Successfully updated',
